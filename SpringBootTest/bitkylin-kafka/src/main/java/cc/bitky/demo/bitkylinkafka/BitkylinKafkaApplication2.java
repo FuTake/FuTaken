@@ -15,10 +15,10 @@ import org.springframework.scheduling.annotation.Scheduled;
 import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
 import java.util.Properties;
+import java.util.Random;
 
 public class BitkylinKafkaApplication2{
     private static Logger log = LoggerFactory.getLogger("sendMessage");
-
     private static org.apache.kafka.clients.producer.KafkaProducer producer;
     private final static String TOPIC = "test-bitkylin";
     public BitkylinKafkaApplication2(){
@@ -42,11 +42,16 @@ public class BitkylinKafkaApplication2{
     public void test(){
         log.info("消息发送：");
         try {
-
             while(true) {
+                int time = new Random().nextInt(2);
                 String message = "message-" + LocalDateTime.now();
-                log.info("发送消息：{}", message);
-                producer.send(new ProducerRecord<String, String>(TOPIC, message));
+                if(time == 1){
+                    log.info("发送消息1：{}", message);
+                    producer.send(new ProducerRecord<String, String>(TOPIC, 1, "1", message));
+                }else{
+                    log.info("发送消息0：{}", message);
+                    producer.send(new ProducerRecord<String, String>(TOPIC, 0, "0", message));
+                }
                 Thread.sleep(500);
             }
         }catch (Exception e){
