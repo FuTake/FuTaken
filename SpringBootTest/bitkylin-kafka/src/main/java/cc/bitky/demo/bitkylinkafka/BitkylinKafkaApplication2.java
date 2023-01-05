@@ -34,15 +34,6 @@ public class BitkylinKafkaApplication2{
         //设置分区类,根据key进行数据分区
         producer = new org.apache.kafka.clients.producer.KafkaProducer(props);
     }
-    public void produce(){
-        for (int i = 30;i<40;i++){
-            String key = String.valueOf(i);
-            String data = "hello kafka message："+key;
-            producer.send(new ProducerRecord<String, String>(TOPIC,key,data));
-            System.out.println(data);
-        }
-        producer.close();
-    }
 
     public static void main(String[] args) {
         new BitkylinKafkaApplication2().test();
@@ -50,24 +41,18 @@ public class BitkylinKafkaApplication2{
 
     public void test(){
         log.info("消息发送：");
-        new Thread(() -> {
-            try {
-                String message = "message-" + LocalDateTime.now();
-                while(true) {
-                    log.info("发送消息：{}", message);
-                    new ProducerRecord<String, String>(TOPIC, message);
-                    Thread.sleep(500);
-                }
-            }catch (Exception e){
-                e.printStackTrace();
-            }finally {
-                producer.close();
-            }
-        }).start();
-    }
+        try {
 
-    @KafkaListener(groupId = "webGroup3", topics = "test-bitkylin")
-    public void listen(String input) {
-        log.info("消息接收: {}", input);
+            while(true) {
+                String message = "message-" + LocalDateTime.now();
+                log.info("发送消息：{}", message);
+                producer.send(new ProducerRecord<String, String>(TOPIC, message));
+                Thread.sleep(500);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            producer.close();
+        }
     }
 }

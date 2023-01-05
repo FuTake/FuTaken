@@ -10,7 +10,7 @@ import org.springframework.kafka.core.KafkaTemplate;
 
 @Slf4j
 @SpringBootApplication
-public class BitkylinKafkaApplication1 implements CommandLineRunner {
+public class BitkylinKafkaApplication1{
 
     public static void main(String[] args) {
         SpringApplication.run(BitkylinKafkaApplication1.class, args);
@@ -19,12 +19,9 @@ public class BitkylinKafkaApplication1 implements CommandLineRunner {
     @Autowired
     private KafkaTemplate<Object, Object> template;
 
-    @Override
-    public void run(String... args) throws Exception {
-        log.info("消息发送：");
-        this.template.send("test-bitkylin", "bitkylin-test-msg");
-    }
 
+    // groupId相同的会分配到同一个partition，同一个partition的消费者就是集群模式
+    // 不同groupId的消费者都会收到消息，这个就是广播模式
     @KafkaListener(groupId = "webGroup3", topics = "test-bitkylin")
     public void listen(String input) {
         log.info("消息接收: {}", input);
