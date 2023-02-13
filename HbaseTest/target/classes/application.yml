@@ -1,0 +1,9 @@
+server:
+  port: 8080
+
+hbase:
+  config:
+    # 上线的时候，需要修改为生产环境的hbase
+    hbase.zookeeper.quorum: localhost
+    hbase.zookeeper.property.clientPort: 2181
+  inquireSize: 1

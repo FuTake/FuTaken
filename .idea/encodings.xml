@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ExcelTest/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/GraceFulShutDown" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/GraceFulShutDown/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/HbaseTest/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JunitTest" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JunitTest/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MyBatisPlusCodeGenerateTest/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MybatisTest" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MybatisTest/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/NettyTest" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/NettyTest/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/annotation" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/annotation/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/asserttest" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/asserttest/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bitkylin-kafka/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/clickhouse/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/designmodel" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/designmodel/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/groovytest" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/groovytest/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jsonRpc4jTest" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jsonRpc4jTest/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ohc-directMemory-github/ohc-benchmark/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ohc-directMemory-github/ohc-benchmark/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ohc-directMemory-github/ohc-core/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ohc-directMemory-github/ohc-jmh/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ohc-directMemory-github/ohc-jmh/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/okhttpTest" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/okhttpTest/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/testController" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/testController/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/threadtest" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/threadtest/src/main/java" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

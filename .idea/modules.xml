@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/UploadAndDownloadBigFile/ExcelTest.iml" filepath="$PROJECT_DIR$/UploadAndDownloadBigFile/ExcelTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GraceFulShutDown/GraceFulShutDown.iml" filepath="$PROJECT_DIR$/GraceFulShutDown/GraceFulShutDown.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HbaseTest/HbaseTest.iml" filepath="$PROJECT_DIR$/HbaseTest/HbaseTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JunitTest/JunitTest.iml" filepath="$PROJECT_DIR$/JunitTest/JunitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MyBatisPlusCodeGenerateTest/MyBatisPlusCodeGenerateTest.iml" filepath="$PROJECT_DIR$/MyBatisPlusCodeGenerateTest/MyBatisPlusCodeGenerateTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MybatisTest/MybatisTest.iml" filepath="$PROJECT_DIR$/MybatisTest/MybatisTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NettyTest/NettyTest.iml" filepath="$PROJECT_DIR$/NettyTest/NettyTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringBootTest.iml" filepath="$PROJECT_DIR$/SpringBootTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ExcelTest/UploadAndDownloadBigFile.iml" filepath="$PROJECT_DIR$/ExcelTest/UploadAndDownloadBigFile.iml" />
+      <module fileurl="file://$PROJECT_DIR$/annotation/annotation.iml" filepath="$PROJECT_DIR$/annotation/annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/asserttest/asserttest.iml" filepath="$PROJECT_DIR$/asserttest/asserttest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bitkylin-kafka/bitkylin-kafka.iml" filepath="$PROJECT_DIR$/bitkylin-kafka/bitkylin-kafka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/clickhouse/clickHouse.iml" filepath="$PROJECT_DIR$/clickhouse/clickHouse.iml" />
+      <module fileurl="file://$PROJECT_DIR$/designmodel/designmodel.iml" filepath="$PROJECT_DIR$/designmodel/designmodel.iml" />
+      <module fileurl="file://$PROJECT_DIR$/groovytest/groovytest.iml" filepath="$PROJECT_DIR$/groovytest/groovytest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jsonRpc4jTest/jsonRpc4jTest.iml" filepath="$PROJECT_DIR$/jsonRpc4jTest/jsonRpc4jTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ohc-directMemory-github/ohc-benchmark/ohc-benchmark.iml" filepath="$PROJECT_DIR$/ohc-directMemory-github/ohc-benchmark/ohc-benchmark.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ohc-directMemory-github/ohc-core/ohc-core.iml" filepath="$PROJECT_DIR$/ohc-directMemory-github/ohc-core/ohc-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ohc-directMemory-github/ohc-jmh/ohc-jmh.iml" filepath="$PROJECT_DIR$/ohc-directMemory-github/ohc-jmh/ohc-jmh.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ohc-directMemory-github/ohc-parent.iml" filepath="$PROJECT_DIR$/ohc-directMemory-github/ohc-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/okhttpTest/okhttpTest.iml" filepath="$PROJECT_DIR$/okhttpTest/okhttpTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/testController/testController.iml" filepath="$PROJECT_DIR$/testController/testController.iml" />
+      <module fileurl="file://$PROJECT_DIR$/threadtest/threadtest.iml" filepath="$PROJECT_DIR$/threadtest/threadtest.iml" />
+    </modules>
+  </component>
+</project>

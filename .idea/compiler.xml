@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="annotation" />
+        <module name="testController" />
+        <module name="ohc-core" />
+        <module name="MybatisTest" />
+        <module name="HbaseTest" />
+        <module name="UploadAndDownloadBigFile" />
+        <module name="threadtest" />
+        <module name="jsonRpc4jTest" />
+        <module name="NettyTest" />
+        <module name="ohc-benchmark" />
+        <module name="ExcelTest" />
+        <module name="clickHouse" />
+        <module name="okhttpTest" />
+        <module name="JunitTest" />
+        <module name="ohc-jmh" />
+        <module name="groovytest" />
+        <module name="asserttest" />
+        <module name="designmodel" />
+        <module name="GraceFulShutDown" />
+        <module name="MyBatisPlusCodeGenerateTest" />
+        <module name="bitkylin-kafka" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="annotation" target="1.8" />
+      <module name="asserttest" target="1.8" />
+      <module name="bitkylin-kafka" target="1.8" />
+      <module name="clickHouse" target="1.8" />
+      <module name="designmodel" target="1.8" />
+      <module name="ExcelTest" target="8" />
+      <module name="GraceFulShutDown" target="1.8" />
+      <module name="groovytest" target="1.8" />
+      <module name="HbaseTest" target="8" />
+      <module name="jsonRpc4jTest" target="1.8" />
+      <module name="JunitTest" target="1.8" />
+      <module name="MyBatisPlusCodeGenerateTest" target="8" />
+      <module name="MybatisTest" target="1.8" />
+      <module name="NettyTest" target="1.8" />
+      <module name="ohc-benchmark" target="1.8" />
+      <module name="ohc-core" target="1.8" />
+      <module name="ohc-jmh" target="1.8" />
+      <module name="ohc-parent" target="1.5" />
+      <module name="okhttpTest" target="1.8" />
+      <module name="SpringBootTest" target="1.8" />
+      <module name="testController" target="1.8" />
+      <module name="threadtest" target="1.8" />
+      <module name="UploadAndDownloadBigFile" target="8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="ExcelTest" options="-parameters" />
+      <module name="GraceFulShutDown" options="-parameters" />
+      <module name="HbaseTest" options="-parameters" />
+      <module name="JunitTest" options="-parameters" />
+      <module name="MyBatisPlusCodeGenerateTest" options="-parameters" />
+      <module name="MybatisTest" options="-parameters" />
+      <module name="NettyTest" options="-parameters" />
+      <module name="SpringBootTest" options="-parameters" />
+      <module name="UploadAndDownloadBigFile" options="-parameters" />
+      <module name="annotation" options="-parameters" />
+      <module name="asserttest" options="-parameters" />
+      <module name="bitkylin-kafka" options="-parameters" />
+      <module name="clickHouse" options="-parameters" />
+      <module name="designmodel" options="-parameters" />
+      <module name="groovytest" options="-parameters" />
+      <module name="jsonRpc4jTest" options="-parameters" />
+      <module name="ohc-benchmark" options="-Xpkginfo:always" />
+      <module name="ohc-core" options="-Xpkginfo:always" />
+      <module name="ohc-jmh" options="-Xpkginfo:always" />
+      <module name="okhttpTest" options="-parameters" />
+      <module name="testController" options="-parameters" />
+      <module name="threadtest" options="-parameters" />
+    </option>
+  </component>
+</project>

@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="SpringBootTest:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>SpringBootTest</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="test.war">
+      <element id="artifact" artifact-name="SpringBootTest:war exploded" />
+    </root>
+  </artifact>
+</component>
