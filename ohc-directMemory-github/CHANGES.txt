@@ -1,0 +1,165 @@
+0.7.1
+=====
+
+#67 Improve lock performance
+- Requires Java 11 or newer to build, runtime support for Java 8 and newer
+  (ohc-core.jar is no longer a multi-release jar)
+- Simplified test-related parts in pom.xml
+- Bump many library versions (see 3f6614707b34aa8689afe069d74ed319c8a8b2ea + e74d45518168710bc33d99f33cc1e5ed735eeb94)
+- Fix javadoc + jmh invocations for Java 11+
+
+0.7.0
+=====
+
+- introduced experimental support for Java 11
+  - ohc-core.jar is now built as a multi-release jar
+  - hasher implementation for CRC32C, falls back to CRC32 before Java 11
+#53 Fix calculation of 'slots' in Timeouts
+#59 Fix initialization of 'precision' in Timeout
+#61 fix double counting in Timeouts.removeExpired()
+- upgrade a bunch of dependencies
+  - Guave to version 19.0
+  - SLF4J to 1.7.25
+  - snappy to 1.1.7.2
+  - jna to 4.5.2
+- removed support for Java 7, therefore the artifact ohc-core-j8 is no longer necessary
+
+
+0.6.1
+=====
+
+- update maven plugin versions
+- update jmh version
+#34 add WTinyLFU
+#37 non-evicting mode
+- unit test fixes for systems with few CPUs
+- unit test fix regarding charset
+
+0.6.0
+=====
+
+BREAKING CHANGES
+----------------
+
+- If entry TTLs are used, it is required to configure the cache with OHCacheBuilder.timeouts(true)
+- Signatures of OHCache.put() and OHCache.remove() methods has been changed to return a boolean value.
+  This means that this version of OHC requires a recompilation of code that uses OHC and cannot be
+  used as a drop-in replacement (i.e. just replace a jar).
+
+non-breaking changes
+--------------------
+
+(#37 non-evicting mode) - not merged by accident
+(#34 add WTinyLFU) - not merged by accident
+- add new builder cache flag 'timeouts'
+- add Ticker interface
+(- unit test fixes for systems with few CPUs) - not merged by accident
+(- unit test fix regarding charset) - not merged by accident
+- update to guava 18.0
+#33 crc32 algorithm does not work on Java7
+
+0.5.1
+=====
+
+#45 chunked implementation: fix descruction of off-heap-maps on initialization failure
+#44 chunked implementation: fix wrong size calculation on eviction
+#32 chunked implementation: allow remove() on returned iterators & do not return removed entries
+
+0.5.0
+=====
+
+#30 fix hash table size check for extreme hash table sizes
+#27 replace ReentrantLock with CAS
+#26 add chunked implementation
+#13 remove tables implementation
+
+0.4.5
+=====
+
+#23 getWithLoader needs contract for null/non-existant values
+- extend javadoc to explain API contracts
+- fix java.version check for Java 9 EA builds
+
+0.4.4
+=====
+
+#20 TTL support for entries
+#9 allow unsynchronized access
+#19 iterator may keep entries referenced if iterator is closed before exhausted
+#17 Checking for java 8 fails
+
+0.4.3
+=====
+
+#18 Allow skipping LRU stats updates in getDirect()
+
+0.4.2
+=====
+
+- use Java byte order instead of native byte order for keys and values
+
+0.4.0
+=====
+
+#15 Refactor serialization to use java.nio.ByteBuffer instead of streams
+
+0.3.6
+=====
+#11 add putIfAbsentDirect() and addOrReplaceDirect()
+#12 check test coverage of direct methods
+
+0.3.5
+=====
+#10 OHC fails to load on 1.7 Zing VM (also https://issues.apache.org/jira/browse/CASSANDRA-9296)
+
+0.3.4
+=====
+#5 add CRC32 and xx-hash as alternative hash algorithms
+- use Unsafe to allocate DirectByteBuffer
+- Update to recent Maven plugins
+
+0.3.3
+=====
+- remove jemalloc via JNA Library allocator
+- make JNA Native.malloc the default memory allocation strategy
+
+0.3.2
+=====
+#2 implement direct buffer access to cached values
+- added some support for unattended batch of benchmarks
+- don't print whole exception message if jemalloc cannot be found (only if debug logging is enabled)
+
+0.3.1
+=====
+- change system property name from DISABLE_JEMALLOC to org.caffinitas.ohc.disableJEmalloc
+- change system property name from DEBUG_OFF_HEAP_MEMORY_ACCESS to org.caffinitas.ohc.debugOffHeapAccess
+- add option OHCacheBuilder to throw OutOfMemoryError when off-heap memory-allocation fails
+
+0.3
+===
+- remove cassandra-all dependency from ohc-benchmark
+- do not deploy big binary ohc-benchmark and ohc-jmh artifacts to Maven Central
+- change scope of snappy dependency in ohc-core to provided
+- benchmark: add new command line option to specify key length (-kl)
+- fix murmur3 hashing
+- divide overall capacity to all segments and manage free capacity inside segments
+- allow use of native malloc()/free() functions via JNA Native class
+- allow to specify preferred memory allocation via system property "org.caffinitas.ohc.allocator"
+- allow to specify defaults of OHCacheBuilder via system properties prefixed with "org.caffinitas.org."
+- max entry size segment defaults to capacity per segment
+- remove fastutil dependency
+#3 support cache-loader functionality
+- some dependency cleanups in pom.xml files
+- benchmark: make metrics in local to the driver threads
+- benchmark: disable bucket histogram in stats by default
+- default minimum capacity changed to 64MB
+
+0.2.1
+=====
+
+#1: KeyBuffer class failed for serialized key size of 16 and multiples of 16
+
+0.2
+===
+
+intial release on Maven Central

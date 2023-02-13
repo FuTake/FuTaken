@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybatis.plus.code.generate.demo.mapper.SupplierGoodCopyMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="mybatis.plus.code.generate.demo.entity.SupplierGoodCopy">
+        <id column="id" property="id" />
+        <result column="snow_id" property="snowId" />
+        <result column="goods_number" property="goodsNumber" />
+        <result column="good_id" property="goodId" />
+        <result column="supplier_name" property="supplierName" />
+        <result column="good_alias" property="goodAlias" />
+        <result column="one_category_id" property="oneCategoryId" />
+        <result column="one_category_class" property="oneCategoryClass" />
+        <result column="two_category_id" property="twoCategoryId" />
+        <result column="two_category_class" property="twoCategoryClass" />
+        <result column="two_classpid" property="twoClasspid" />
+        <result column="good_name" property="goodName" />
+        <result column="good_brand" property="goodBrand" />
+        <result column="good_place" property="goodPlace" />
+        <result column="good_root" property="goodRoot" />
+        <result column="good_root_remark" property="goodRootRemark" />
+        <result column="is_not_shelves" property="isNotShelves" />
+        <result column="create_id" property="createId" />
+        <result column="supplier_id" property="supplierId" />
+        <result column="create_time" property="createTime" />
+        <result column="update_id" property="updateId" />
+        <result column="update_time" property="updateTime" />
+        <result column="status" property="status" />
+        <result column="approval_state" property="approvalState" />
+        <result column="supplier_state" property="supplierState" />
+        <result column="system_state" property="systemState" />
+        <result column="remark" property="remark" />
+        <result column="good_code" property="goodCode" />
+        <result column="unit" property="unit" />
+        <result column="good_price" property="goodPrice" />
+        <result column="specifications_remark" property="specificationsRemark" />
+        <result column="loss" property="loss" />
+        <result column="good_label_id" property="goodLabelId" />
+        <result column="good_label" property="goodLabel" />
+        <result column="rate_code" property="rateCode" />
+        <result column="rate" property="rate" />
+        <result column="good_main_image" property="goodMainImage" />
+        <result column="deleted" property="deleted" />
+        <result column="create_name" property="createName" />
+        <result column="specifications" property="specifications" />
+        <result column="farming_images" property="farmingImages" />
+        <result column="start_number" property="startNumber" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, snow_id, goods_number, good_id, supplier_name, good_alias, one_category_id, one_category_class, two_category_id, two_category_class, two_classpid, good_name, good_brand, good_place, good_root, good_root_remark, is_not_shelves, create_id, supplier_id, create_time, update_id, update_time, status, approval_state, supplier_state, system_state, remark, good_code, unit, good_price, specifications_remark, loss, good_label_id, good_label, rate_code, rate, good_main_image, deleted, create_name, specifications, farming_images, start_number
+    </sql>
+
+</mapper>
