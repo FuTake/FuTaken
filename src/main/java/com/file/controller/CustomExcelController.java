@@ -1,20 +1,12 @@
 package com.file.controller;
 
 import com.alibaba.excel.EasyExcel;
-import com.alibaba.excel.write.metadata.WriteSheet;
-import com.alibaba.excel.write.metadata.style.WriteCellStyle;
-import com.alibaba.excel.write.metadata.style.WriteFont;
-import com.alibaba.excel.write.style.HorizontalCellStyleStrategy;
 import com.alibaba.excel.write.style.column.LongestMatchColumnWidthStyleStrategy;
-import com.alibaba.excel.write.style.column.SimpleColumnWidthStyleStrategy;
-import com.file.config.CustomMergeStrategy;
-import com.file.config.ExcelFillCellMergeOneStrategy;
-import com.file.config.ExcelFillCellMergePrevCol;
+import com.file.config.EasyExcelCellMergeStrategy;
+//import com.file.config.ExcelFillCellMergeOneStrategy;
 import com.google.common.collect.Lists;
-import org.apache.poi.ss.usermodel.*;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CustomExcelController {
@@ -121,14 +113,13 @@ public class CustomExcelController {
 //        contentWriteCellStyle.setFillPatternType(FillPatternType.NO_FILL);
 //        contentWriteCellStyle.setWrapped(false);
         int size = contents.size();
-        ExcelFillCellMergePrevCol col = new ExcelFillCellMergePrevCol();
-        col.add(3, 0, 2);
         EasyExcel.write("C:\\Users\\a1557\\Desktop\\test.xlsx")
                 .sheet("test")
                 .head(heads)
 //                .registerWriteHandler(new ExcelFillCellMergeStrategy(size, new int[]{3,0,1}, size + 1))
 //                .registerWriteHandler(col)
-                .registerWriteHandler(new ExcelFillCellMergeOneStrategy(2, new int[]{0}))
+//                .registerWriteHandler(new ExcelFillCellMergeOneStrategy(2, new int[]{0}))
+                .registerWriteHandler(new EasyExcelCellMergeStrategy(2, new int[]{0}))
                 .registerWriteHandler(new LongestMatchColumnWidthStyleStrategy())
                 .doWrite(contents);
 
