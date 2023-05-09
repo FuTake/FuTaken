@@ -1,0 +1,31 @@
+server:
+  port: 8080
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 10GB #最大文件大小
+      max-request-size: 10GB
+  application:
+    name: big-file #项目名称
+  main:
+    allow-circular-references: true
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/big_file?rewriteBatchedStatements=true
+    username: root
+    password: 123456
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.file.entity
+  global-config:
+    db-config:
+      id-type: auto
+      insert-strategy: ignored
+
+swagger:
+  title: 大文件上传下载
+  basePackage: com.file.controller
+  enabled: true
