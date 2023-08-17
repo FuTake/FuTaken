@@ -1,0 +1,24 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: nacosTest-zhg
+  cloud:
+    nacos:
+      discovery:
+        namespace: 9ca9dbb1-8572-4b30-b880-f4ee9b3975c8
+        server-addr: 127.0.0.1:8848
+        username: nacos
+        password: nacos
+      config:
+        namespace: 9ca9dbb1-8572-4b30-b880-f4ee9b3975c8
+        server-addr: 127.0.0.1:8848
+        username: nacos
+        password: nacos
+        extension-configs[0]:
+          data-id: nacos-test.yml
+          group: DEFAULT_GROUP
+          refresh: true
+    # ??SpringCloud?SpringBoot??????
+    compatibility-verifier:
+      enabled: false
