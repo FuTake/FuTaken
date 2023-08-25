@@ -1,0 +1,9 @@
+server:
+  port: 8080
+minio:
+  endpoint: 10.177.86.21
+  port: 9009
+  accessKey: admin
+  secretKey: Bonc@!QAZ2wsx
+  secure: false
+  bucketName: yypt
