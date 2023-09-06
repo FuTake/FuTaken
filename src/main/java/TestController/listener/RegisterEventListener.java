@@ -2,12 +2,16 @@ package TestController.listener;
 
 import TestController.entity.RegisterSuccessEvent;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
-@Slf4j
+
 @Component
 public class RegisterEventListener {
+
+    private static final Logger log = LoggerFactory.getLogger(RegisterEventListener.class);
 
     @EventListener
     public void handleNotifyEvent(RegisterSuccessEvent event) {

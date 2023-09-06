@@ -14,6 +14,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  **/
 @SpringBootApplication
 public class App {
+    /**
+     * 20230905:111734
+     * SpringBoot3.0之后不再使用SpringFactoriesLoader，而是Spring重新从META-INF/spring/目录下的org.springframework.boot.autoconfigure.AutoConfiguration.imports文件中读取了
+     * https://juejin.cn/post/7210601680554246202
+     */
     public static void main(String[] args) {
         SpringApplication.run(App.class, args);
     }

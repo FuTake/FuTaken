@@ -1,5 +1,7 @@
 package TestController.servletcontextlistener.config;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -16,11 +18,12 @@ public class PropertiesConfig {
     @Value("${servletContext.param1}")
     private String value;
 
+    private static final Logger log = LoggerFactory.getLogger(PropertiesConfig.class);
 
     @PostConstruct
     public void init(){
         LocalDateTime time =  LocalDateTime.now();
-        System.out.println(time.format(DateTimeFormatter.ofPattern("yyyy-MM-ss HH:mm:ss")) + "@PostConstruct");
+        log.info(time.format(DateTimeFormatter.ofPattern("yyyy-MM-ss HH:mm:ss")) + "@PostConstruct");
     }
 
 }
