@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="temp.generate.tempGenerate.mapper.MonthlyReportDeliveryHoursAnalysisMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="temp.generate.tempGenerate.entity.DeliveryHoursAnalysis">
+        <id column="id" property="id" />
+        <result column="demand_type" property="demandType" />
+        <result column="demand_num" property="demandNum" />
+        <result column="average_delivery_time" property="averageDeliveryTime" />
+        <result column="under_fifteen_days" property="underFifteenDays" />
+        <result column="under_fifteen_days_rate" property="underFifteenDaysRate" />
+        <result column="fifteen_days_to_thirty_days" property="fifteenDaysToThirtyDays" />
+        <result column="fifteen_days_to_thirty_days_rate" property="fifteenDaysToThirtyDaysRate" />
+        <result column="over_thirty_days" property="overThirtyDays" />
+        <result column="over_thirty_days_rate" property="overThirtyDaysRate" />
+        <result column="month_id" property="monthId" />
+        <result column="value_type" property="valueType" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, demand_type, demand_num, average_delivery_time, under_fifteen_days, under_fifteen_days_rate, fifteen_days_to_thirty_days, fifteen_days_to_thirty_days_rate, over_thirty_days, over_thirty_days_rate, month_id, value_type
+    </sql>
+
+</mapper>

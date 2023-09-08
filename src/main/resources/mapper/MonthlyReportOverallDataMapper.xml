@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="temp.generate.tempGenerate.mapper.MonthlyReportOverallDataMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="temp.generate.tempGenerate.entity.OverallData">
+        <id column="id" property="id" />
+        <result column="common_name" property="commonName" />
+        <result column="demand_total" property="demandTotal" />
+        <result column="completed" property="completed" />
+        <result column="completed_rate" property="completedRate" />
+        <result column="evaluating" property="evaluating" />
+        <result column="confirming" property="confirming" />
+        <result column="developing" property="developing" />
+        <result column="testing" property="testing" />
+        <result column="publishing" property="publishing" />
+        <result column="evaluate_hours" property="evaluateHours" />
+        <result column="delivery_hours" property="deliveryHours" />
+        <result column="average_evaluate_hours" property="averageEvaluateHours" />
+        <result column="average_delivery_hours" property="averageDeliveryHours" />
+        <result column="in_transit" property="inTransit" />
+        <result column="in_transit_rate" property="inTransitRate" />
+        <result column="cross_project" property="crossProject" />
+        <result column="single_system" property="singleSystem" />
+        <result column="analysis_type" property="analysisType" />
+        <result column="month_id" property="monthId" />
+        <result column="value_type" property="valueType" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, common_name, demand_total, completed, completed_rate, evaluating, confirming, developing, testing, publishing, evaluate_hours, delivery_hours, average_evaluate_hours, average_delivery_hours, in_transit, in_transit_rate, cross_project, single_system, analysis_type, month_id, value_type
+    </sql>
+
+</mapper>
