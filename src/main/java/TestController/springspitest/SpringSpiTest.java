@@ -21,7 +21,7 @@ public class SpringSpiTest {
     @Resource(name = "cat")
     private SpiTest catSpiTest;
 
-    @PostConstruct
+//    @PostConstruct
     public void init(){
         dogSpiTest.run();
         dogSpiTest.walk();

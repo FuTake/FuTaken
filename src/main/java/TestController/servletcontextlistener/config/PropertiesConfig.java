@@ -20,7 +20,7 @@ public class PropertiesConfig {
 
     private static final Logger log = LoggerFactory.getLogger(PropertiesConfig.class);
 
-    @PostConstruct
+//    @PostConstruct
     public void init(){
         LocalDateTime time =  LocalDateTime.now();
         log.info(time.format(DateTimeFormatter.ofPattern("yyyy-MM-ss HH:mm:ss")) + "@PostConstruct");

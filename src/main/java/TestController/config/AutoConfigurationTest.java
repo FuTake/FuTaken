@@ -20,7 +20,7 @@ public class AutoConfigurationTest {
         log.info("AutoConfigurationTest 类初始化");
     }
 
-    @PostConstruct
+//    @PostConstruct
     public void init(){
       // 并没有执行
       log.info("AutoConfigurationTest 自动装配测试");
