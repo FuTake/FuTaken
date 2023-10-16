@@ -1,8 +1,8 @@
 server:
-  port: 18080
+  port: 18180
 spring:
   application:
-    name: nacosTest-zhg
+    name: nacosTest2-zhg
   cloud:
     nacos:
       discovery:
@@ -10,8 +10,9 @@ spring:
         server-addr: 127.0.0.1:8848
         username: nacos
         password: nacos
+        # 手动指定注册服务的ip和端口，解决nacos部署在docker中导致拿到的服务ip是错误的问题
         ip: 127.0.0.1
-        port: 18080
+        port: 18180
       config:
         namespace: 9ca9dbb1-8572-4b30-b880-f4ee9b3975c8
         server-addr: 127.0.0.1:8848

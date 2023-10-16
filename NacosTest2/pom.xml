@@ -8,14 +8,15 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <artifactId>NacosTest</artifactId>
+    <groupId>org.example</groupId>
+    <artifactId>NacosTest2</artifactId>
     <packaging>jar</packaging>
 
-    <name>NacosTest</name>
+    <name>NacosTest2</name>
     <url>http://maven.apache.org</url>
 
     <properties>
-<!--        https://baijiahao.baidu.com/s?id=1771358714767361684&wfr=spider&for=pc springboot对应springCloud版本-->
+        <!--        https://baijiahao.baidu.com/s?id=1771358714767361684&wfr=spider&for=pc springboot对应springCloud版本-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring-cloud.version>Hoxton.SR12</spring-cloud.version>
         <spring-cloud-alibaba.version>2.2.8.RELEASE</spring-cloud-alibaba.version>
@@ -62,13 +63,13 @@
             <version>3.8.1</version>
             <scope>test</scope>
         </dependency>
-<!--        注册中心-->
+        <!--        注册中心-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
             <version>${alibaba-nacos.version}</version>
         </dependency>
-<!--        配置中心-->
+        <!--        配置中心-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
@@ -81,7 +82,6 @@
             <version>${spring-cloud-alibaba.version}</version>
         </dependency>
 
-
     </dependencies>
 
     <build>
@@ -91,36 +91,37 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-<!--            <plugin>-->
-<!--                <groupId>com.spotify</groupId>-->
-<!--                <artifactId>docker-maven-plugin</artifactId>-->
-<!--                <version>1.0.0</version>-->
-<!--                &lt;!&ndash;将插件绑定在某个phase执行&ndash;&gt;-->
-<!--&lt;!&ndash;                <executions>&ndash;&gt;-->
-<!--&lt;!&ndash;                    <execution>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <id>build-image</id>&ndash;&gt;-->
-<!--&lt;!&ndash;                        &lt;!&ndash;将插件绑定在package阶段，换言之，只要执行mvn package ，就会自动执行mvn docker:build&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;                        &lt;!&ndash;等同于命令：mvn clean package docker:build -Dmaven.test.skip=true	&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;                        <phase>package</phase>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <goals>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <goal>build</goal>&ndash;&gt;-->
-<!--&lt;!&ndash;                        </goals>&ndash;&gt;-->
-<!--&lt;!&ndash;                    </execution>&ndash;&gt;-->
-<!--&lt;!&ndash;                </executions>&ndash;&gt;-->
-<!--                <configuration>-->
-<!--                    &lt;!&ndash;指定生成的镜像名&ndash;&gt;-->
-<!--                    <imageName>docker-${project.artifactId}</imageName>-->
-<!--                    &lt;!&ndash;指定标签&ndash;&gt;-->
-<!--                    <imageTags>-->
-<!--                        <imageTag>latest</imageTag>-->
-<!--                    </imageTags>-->
-<!--                    &lt;!&ndash; 指定Dockerfile路径 ${project.basedir}:pom.xml所在的目录&ndash;&gt;-->
-<!--                    <dockerDirectory>${project.basedir}</dockerDirectory>-->
-<!--                    &lt;!&ndash;指定远程docker环境地址&ndash;&gt;-->
-<!--                    <dockerHost>http://127.0.0.1:2375</dockerHost>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
+            <!--            <plugin>-->
+            <!--                <groupId>com.spotify</groupId>-->
+            <!--                <artifactId>docker-maven-plugin</artifactId>-->
+            <!--                <version>1.0.0</version>-->
+            <!--                &lt;!&ndash;将插件绑定在某个phase执行&ndash;&gt;-->
+            <!--&lt;!&ndash;                <executions>&ndash;&gt;-->
+            <!--&lt;!&ndash;                    <execution>&ndash;&gt;-->
+            <!--&lt;!&ndash;                        <id>build-image</id>&ndash;&gt;-->
+            <!--&lt;!&ndash;                        &lt;!&ndash;将插件绑定在package阶段，换言之，只要执行mvn package ，就会自动执行mvn docker:build&ndash;&gt;&ndash;&gt;-->
+            <!--&lt;!&ndash;                        &lt;!&ndash;等同于命令：mvn clean package docker:build -Dmaven.test.skip=true	&ndash;&gt;&ndash;&gt;-->
+            <!--&lt;!&ndash;                        <phase>package</phase>&ndash;&gt;-->
+            <!--&lt;!&ndash;                        <goals>&ndash;&gt;-->
+            <!--&lt;!&ndash;                            <goal>build</goal>&ndash;&gt;-->
+            <!--&lt;!&ndash;                        </goals>&ndash;&gt;-->
+            <!--&lt;!&ndash;                    </execution>&ndash;&gt;-->
+            <!--&lt;!&ndash;                </executions>&ndash;&gt;-->
+            <!--                <configuration>-->
+            <!--                    &lt;!&ndash;指定生成的镜像名&ndash;&gt;-->
+            <!--                    <imageName>docker-${project.artifactId}</imageName>-->
+            <!--                    &lt;!&ndash;指定标签&ndash;&gt;-->
+            <!--                    <imageTags>-->
+            <!--                        <imageTag>latest</imageTag>-->
+            <!--                    </imageTags>-->
+            <!--                    &lt;!&ndash; 指定Dockerfile路径 ${project.basedir}:pom.xml所在的目录&ndash;&gt;-->
+            <!--                    <dockerDirectory>${project.basedir}</dockerDirectory>-->
+            <!--                    &lt;!&ndash;指定远程docker环境地址&ndash;&gt;-->
+            <!--                    <dockerHost>http://127.0.0.1:2375</dockerHost>-->
+            <!--                </configuration>-->
+            <!--            </plugin>-->
         </plugins>
     </build>
+
 
 </project>
