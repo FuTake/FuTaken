@@ -31,13 +31,23 @@ import java.nio.charset.StandardCharsets;
  *  有序消息所有监听都能收到，通过设定好的序列
  *  listener2，3设置为clustering  1设置为broadcasting时 只有1，3还是广播模式为什么？
  *  然后再改为普通消息，listener1,3能收到相同的消息，listener2单独收到一条消息(1,3则收不到这条消息) 为什么？？？
+ *
+ *  20240124
+ *  1.listener 是consumeMode = ConsumeMode.CONCURRENTLY, messageModel = MessageModel.BROADCASTING
+ *  2.listenerThree 是consumeMode = ConsumeMode.CONCURRENTLY, messageModel = MessageModel.CLUSTERING
+ *  3.listenerTwo 是consumeMode = ConsumeMode.CONCURRENTLY, messageModel = MessageModel.CLUSTERING
+ *  会出现 1和2收到一次相同的消息，然后1和3收到一次相同的消息，然后1单独收到一次消息
+ *
+ *  1.listener 是consumeMode = ConsumeMode.CONCURRENTLY, messageModel = MessageModel.BROADCASTING
+ *  2.listenerThree 是consumeMode = ConsumeMode.CONCURRENTLY, messageModel = MessageModel.BROADCASTING
+ *  3.listenerTwo 是consumeMode = ConsumeMode.CONCURRENTLY, messageModel = MessageModel.BROADCASTING
+ *  会出现 1，2，3同时收到同一条消息
  */
-@RocketMQMessageListener(topic = "rocketmq-test", consumeThreadMax = 1,consumerGroup = "rocketmq-consumer-1",consumeMode = ConsumeMode.CONCURRENTLY, messageModel = MessageModel.BROADCASTING)
+@RocketMQMessageListener(topic = "rocketmq-test", consumeThreadMax = 1,consumerGroup = "rocketmq-consumer-1",consumeMode = ConsumeMode.CONCURRENTLY, messageModel = MessageModel.CLUSTERING)
 @Component
 public class MsgListener implements RocketMQListener<MessageExt> {
 
     private static final Logger log = LoggerFactory.getLogger(MsgListener.class);
-
     @Override
     public void onMessage(MessageExt messageExt) {
         String content = new String(messageExt.getBody(), StandardCharsets.UTF_8);

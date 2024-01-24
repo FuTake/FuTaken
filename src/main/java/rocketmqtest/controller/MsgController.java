@@ -34,7 +34,7 @@ public class MsgController {
         ThreadPoolExecutor executor = new ThreadPoolExecutor(10, 10, 5, TimeUnit.SECONDS, new ArrayBlockingQueue<>(1));
         executor.execute(()->{
             try {
-                disorderMsg();
+                orderMsg();
             }catch (Exception e){
                 log.error("disorderMsg error", e);
             }
@@ -181,6 +181,14 @@ public class MsgController {
         producer.setCreateTopicKey("AUTO_CREATE_TOPIC_KEY");
         //Launch the instance.
         producer.start();
+
+        /*
+            20240124:180315
+            指定消息要发送到的topic,broker和写对列编号
+            通过指定写队列实现消息的顺序发送，和消费
+            指定queueId后，同一个消费者组，只有一个消费者会一直接收消息
+        */
+        MessageQueue messageQueue = new MessageQueue(topicName, brokerName, 2);
         while(true) {
             try {
                 Thread.sleep(1000);
@@ -188,7 +196,7 @@ public class MsgController {
                 String date = time.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
                 Message msg = new Message(topicName, "tag1", (date + "-orderlyMsg").getBytes(RemotingHelper.DEFAULT_CHARSET));
                 // 指定消息发送到 指定的队列中，从而实现 消息的顺序消费
-                SendResult sendResult = producer.send(msg, new MessageQueue(topicName, brokerName, 0));
+                SendResult sendResult = producer.send(msg, messageQueue);
                 System.out.println("status-->" + sendResult.getSendStatus());
             }catch (Exception e){
                 log.info("sendMsgError ", e);
@@ -209,14 +217,16 @@ public class MsgController {
         producer.setCreateTopicKey("AUTO_CREATE_TOPIC_KEY");
         //Launch the instance.
         producer.start();
+        int count = 0;
+
         while(true) {
             try {
-                Thread.sleep(1000);
+                Thread.sleep(10000);
                 LocalDateTime time = LocalDateTime.now();
                 String date = time.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
                 Message msg = new Message(topicName, "tag1", (date+"-disorderMsg").getBytes(RemotingHelper.DEFAULT_CHARSET));
                 SendResult sendResult = producer.send(msg);
-                System.out.println("status-->" + sendResult.getSendStatus());
+                System.out.println("status-->" + sendResult.getSendStatus() + " count:" + ++count + " time:" + date);
             }catch (Exception e){
                 log.info("sendMsgError ", e);
             }
