@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="groovyFromMySql.mapper.GroovyScriptMapper">
+
+    <select id="selectNewest" resultType="groovyFromMySql.entity.GroovyScriptModel">
+        select *
+        from dm_groovy_script_practice s1
+        inner join (select distinct script_id, max(version) as 'version'
+                    from dm_groovy_script_practice
+                    group by script_id) s2 on s1.script_id = s2.script_id and s1.version = s2.version
+    </select>
+</mapper>
