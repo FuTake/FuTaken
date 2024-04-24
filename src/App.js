@@ -488,7 +488,7 @@ export function ContextPractice(){
   );
 }
 
-export default function RefTest(){
+export function RefTest(){
   // 被useRef和useState修饰后的变量更像静态变量，不会因为渲染而重置为默认值
   // ref.current会在改变后立刻生效 脱围机制
   let ref = useRef(0);
@@ -515,6 +515,67 @@ export default function RefTest(){
       <button onClick={handleClick}>点击</button>
       {/* ref.current = time，temp恒为0。 先执行handleClick函数，然后重新渲染（重新渲染相当于new RefTest此时temp被重置，而time则显示为渲染时的数(即新RefTest的值)） */}
       <div id="test">{ref.current + " " + time + " " + temp}</div>
+    </>
+  );
+}
+
+
+
+// ref配合标签使用
+export default function FocusInput(){
+  const ref = useRef(1);
+
+  const ref1 = useRef(null);
+  const ref2 = useRef(null);
+  const ref3 = useRef(null);
+
+  const refList = [ref1, ref2, ref3];
+  
+  
+  const userList = ['zhangsan', 'lisi', 'wangwu'];
+
+  function focus(){
+    console.log("focus() ref:" + ref)
+    ref.current.focus();
+  }
+
+  // 
+  function scrollIntoViewTest(index){
+    const tempRef = refList[index];
+    console.log("scrollIntoViewTest ref: " + tempRef +" index: " + index);
+    if(tempRef != null){
+      tempRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center'
+      })
+    }
+  }
+
+  return (
+    <>
+      <div>
+        <input placeholder='点击聚焦鼠标会选中该框' ref={ref} />
+        <button onClick={focus}>聚焦</button>
+      </div>
+      <div>
+        <button id = {0} className='refButton' onClick={e => scrollIntoViewTest(e.target.id)}>{userList[0]}</button>
+        <button id = {1} className='refButton' onClick={e => scrollIntoViewTest(e.target.id)}>{userList[1]}</button>
+        <button id = {2} className='refButton' onClick={e => scrollIntoViewTest(e.target.id)}>{userList[2]}</button>
+      </div>
+      <div>
+        <ul>
+          <li>
+            <img src="http://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" alt={userList[0]} ref={ref1}></img>
+          </li>
+          <li>
+            <img src="http://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" alt={userList[1]} ref={ref2}></img>
+          </li>
+          <li>
+            <img src="http://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" alt={userList[2]} ref={ref3}></img>
+          </li>
+        </ul>
+      </div>
     </>
   );
 }

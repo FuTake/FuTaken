@@ -18,3 +18,7 @@ code {
   border-radius: 50px;
   border: 1px solid #aaa;
 }
+.refButton {
+  width: 20%;
+  margin: 5%;
+}
