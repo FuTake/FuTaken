@@ -124,6 +124,8 @@ export function ShowClock({id}){
     setDel(Math.floor(Math.random() * 8)%2 === 0);
   }
 
+  // effect只适用于蚕食跳出React代码并与一些其他外部系统交互的流程
+  // 这个useEffect是谁触发的，为什么clearInterval之后还能定时更新? 20240424
   useEffect(() => {
     const id1 = setInterval(() => {
       indexAdd();
@@ -206,25 +208,52 @@ export function StateAdd(){
   );
 }
 
-export function MovePoint(){
+export default function MovePoint(){
   //state一个对象
   const [position, setPosition] = useState({x:0, y:0})
 
   const [offset, setOffset] = useState(0);
 
-  useEffect(()=>{
-    const id1 = setInterval(()=>{
-      setOffset(Math.floor(Math.random() * 100));
-    }, 1000);
-    return ()=> clearInterval(id1);
+  // 不动鼠标时，会按照setInterval配置的时间执行
+  // 移动鼠标时，会快速执行这个函数
+  // 渲染完后才会执行的组件
+  // 一个export不能用两个useEffect?
+  // useEffect(()=>{
+  //   const id1 = setInterval(()=>{
+  //     setOffset(Math.floor(Math.random() * 100));
+  //   }, 1000);
+  //   console.log("MovePoint.useEffect is working offset=" + offset);
+  //   return ()=> clearInterval(id1);
+  // })
+
+  // useEffect(()=>{
+  //   // 取消定时器后，直接再return返回随机生成的offset就能实现 移动鼠标时，位移同步更新的动作
+  //   console.log("MovePoint.useEffect is working");
+  //   return ()=> setOffset(Math.floor(Math.random() * 100));;
+  // })
+
+  // 在useEffect中使用setOffset，而setOffset导致render刷新，而render刷新又会触发useEffect，进而导致死循环
+  // useEffect(()=>{
+  //   // 取消定时器后，直接再return返回随机生成的offset就能实现 移动鼠标时，位移同步更新的动作
+  //   setOffset(Math.floor(Math.random() * 100));
+  //   console.log("MovePoint.useEffect is working offset=" + offset);
+  //   // return ()=> setOffset(1);
+  // })
+  useEffect(() => {
+    // 这里的值就是setOffset执行后的offset值，因为此时render已经执行过了
+    console.log("useEffect offset=" + offset);
   })
   
   // 怎么实现offset的定时更新和鼠标坐标更新独立
   return (
     <div onPointerMove={e => {
       setPosition({x:e.clientX-offset, y:e.clientY-offset});
-      // setOffset(Math.floor(Math.random() * 100));
+      //如果想更新offset值，最好在这里写setOffset而不是在useEffect中
+      setOffset(Math.floor(Math.random() * 100));
+      // 此时render还没更新所以offset是setOffset之前offset的值
+      console.log("offset=" + offset);
     }} style={{position:'relative', width:'100vw', height:'100vh'}}>
+      {/* 这里的值是下一个红点与鼠标位移的值 */}
       <div>{offset}</div>
       <div style={{
         position: 'absolute',
@@ -522,7 +551,7 @@ export function RefTest(){
 
 
 // ref配合标签使用
-export default function FocusInput(){
+export function FocusInput(){
   const ref = useRef(1);
 
   const ref1 = useRef(null);
@@ -566,7 +595,7 @@ export default function FocusInput(){
       <div>
         <ul>
           <li>
-            <img src="http://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" alt={userList[0]} ref={ref1}></img>
+            <img  src="http://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" alt={userList[0]} ref={ref1}></img>
           </li>
           <li>
             <img src="http://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png" alt={userList[1]} ref={ref2}></img>
@@ -578,4 +607,35 @@ export default function FocusInput(){
       </div>
     </>
   );
+}
+
+export function UseEffectTest(){
+  const [resolution, setResolution] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight
+  });
+  
+  useEffect(()=>{
+    const handleResize = () => {
+      setResolution({
+        width: window.innerWidth,
+        height: window.innerHeight
+      });
+    };
+    //只写这个相当于是页面全局刷新，响应慢还卡顿，打开f12后无效了
+    window.addEventListener("resize", handleResize);
+    // 加上这个相当于局部刷新，响应快流畅，打开f12可以看到html的修改
+    return () => {
+      document.title = "React Hooks Demo";
+      window.removeEventListener('resize', handleResize);
+    }
+  });
+
+  return (
+    <p>
+      <h3>
+        {resolution.width} x {resolution.height}
+      </h3>
+    </p>
+  )
 }
