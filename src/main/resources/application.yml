@@ -1,0 +1,8 @@
+elasticsearch:
+  #server: 140.210.90.208:9200
+#  server: 172.16.8.69:9200
+#  user: elastic
+#  pass: gpy_cZh_WpX6
+  server: 127.0.0.1:9200
+  user:
+  pass:
